@@ -39,6 +39,7 @@ class LinkedList:
     def pop(self, index):
         pass
 
+
     def remove(self, value):
         prev = None
         curr = self.head
@@ -53,7 +54,15 @@ class LinkedList:
 
 
     def index(self, value):
-        pass
+        index = 0
+        curr = self.head
+        while curr:
+            if curr.value == value:
+                return index
+            index += 1
+            curr = curr.next
+        raise ValueError(f"{value} is not in LinkedList")
+
 
     def count(self, value):
         pass
