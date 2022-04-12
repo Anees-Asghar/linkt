@@ -85,8 +85,11 @@ class LinkedList:
     def clear(self):
         self.head = None
 
+
     def copy(self):
-        pass
+        import copy
+        return copy.deepcopy(self)
+
 
     def __str__(self):
         pass
