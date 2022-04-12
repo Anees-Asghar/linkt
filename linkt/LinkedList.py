@@ -65,7 +65,16 @@ class LinkedList:
 
 
     def count(self, value):
-        pass
+        value_count = 0
+
+        curr = self.head
+        while curr:
+            if curr.value ==  value:
+                value_count += 1
+            curr = curr.next
+        
+        return value_count
+
 
     def sort(self, reverse=False):
         pass
