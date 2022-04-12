@@ -106,12 +106,13 @@ class LinkedList:
 
     def __add__(self, other):
         import copy
+        
         l1 = copy.deepcopy(self)
         l2 = copy.deepcopy(other)
 
         if not l1.head:
             l1.head = l2.head
-            return
+            return l1
 
         curr = l1.head
         while curr.next:
