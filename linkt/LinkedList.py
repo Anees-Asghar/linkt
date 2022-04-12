@@ -83,7 +83,7 @@ class LinkedList:
         pass
 
     def clear(self):
-        pass
+        self.head = None
 
     def copy(self):
         pass
