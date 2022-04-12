@@ -22,7 +22,19 @@ class LinkedList:
 
         
     def insert(self, index, value):
-        pass
+        prev = None
+        curr = self.head
+        for _ in range(index):
+            if not curr:
+                raise IndexError("LinkedList index out of range")
+            prev, curr = curr, curr.next
+        
+        new_node = Node(value)
+        if prev:
+            prev.next, new_node.next = new_node, prev.next
+        else:
+            self.head, new_node.next = new_node, self.head
+
 
     def pop(self, index):
         pass
