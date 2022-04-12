@@ -80,22 +80,18 @@ class LinkedList:
     def __getitem__(self, index):
         curr = self.head
         for _ in range(index):
-            try:
-                curr = curr.next
-            except AttributeError:
-                print("Index Error: LinkedList index out of range")
-                return
+            if not curr:
+                raise IndexError("LinkedList index out of range")
+            curr = curr.next
         return curr.value
 
 
     def __setitem__(self, index, new_value):
         curr = self.head
         for _ in range(index):
-            try:
-                curr = curr.next
-            except AttributeError:
-                print("Index Error: LinkedList index out of range")
-                return 
+            if not curr:
+                raise IndexError("LinkedList index out of range")
+            curr = curr.next
         curr.value = new_value
 
 
