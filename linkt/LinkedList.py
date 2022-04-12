@@ -83,13 +83,20 @@ class LinkedList:
             try:
                 curr = curr.next
             except AttributeError:
-                # tbc: error handling
                 print("Index Error: LinkedList index out of range")
                 return
         return curr.value
 
+
     def __setitem__(self, index, new_value):
-        pass
+        curr = self.head
+        for _ in range(index):
+            try:
+                curr = curr.next
+            except AttributeError:
+                print("Index Error: LinkedList index out of range")
+                return 
+        curr.value = new_value
 
 
     def __contains__(self, value):
@@ -102,13 +109,16 @@ class LinkedList:
 
 
     def __add__(self, other):
-        # tbc: modifies l1
-        if not self.head:
-            self.head = other.head
+        import copy
+        l1 = copy.deepcopy(self)
+        l2 = copy.deepcopy(other)
+
+        if not l1.head:
+            l1.head = l2.head
             return
 
-        curr = self.head
+        curr = l1.head
         while curr.next:
             curr = curr.next
-        curr.next = other.head
-        return self
+        curr.next = l2.head
+        return l1
