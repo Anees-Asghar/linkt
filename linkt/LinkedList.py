@@ -80,7 +80,15 @@ class LinkedList:
         pass
 
     def reverse(self):
-        pass
+        prev = None
+        curr = self.head
+        while curr:
+            tmp = curr.next
+            curr.next = prev
+            prev = curr
+            curr = tmp
+        self.head = prev
+
 
     def clear(self):
         self.head = None
