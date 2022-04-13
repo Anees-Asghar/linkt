@@ -8,6 +8,7 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
+
     def append(self, value):
         new_node = Node(value)
 
@@ -100,7 +101,11 @@ class LinkedList:
 
 
     def __str__(self):
-        pass
+        res = [str(n) for n in self]
+        res.append('None')
+        res = " -> ".join(res)
+        return res
+
 
     def __len__(self):
         count = 0
