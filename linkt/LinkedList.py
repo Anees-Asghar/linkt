@@ -78,7 +78,12 @@ class LinkedList:
 
 
     def sort(self, reverse=False):
-        pass
+        items = [i for i in self]
+        items.sort(reverse=reverse)
+        self.clear()
+        for i in items:
+            self.append(i)
+
 
     def reverse(self):
         prev = None
