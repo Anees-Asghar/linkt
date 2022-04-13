@@ -101,9 +101,18 @@ class LinkedList:
 
 
     def __str__(self):
-        res = [str(n) for n in self]
-        res.append('None')
-        res = " -> ".join(res)
+        res = [n for n in self]
+        res.append(None)
+        res = str(res)
+        res = res[1:-1].replace(', ', ' -> ')
+        return res
+
+
+    def __repr__(self):
+        res = [n for n in self]
+        res.append(None)
+        res = str(res)
+        res = res[1:-1].replace(', ', ' -> ')
         return res
 
 
