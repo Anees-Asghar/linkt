@@ -1,3 +1,6 @@
+from typing import Iterable
+
+
 class Node:
     def __init__(self, value):
         self.value = value
@@ -5,8 +8,15 @@ class Node:
 
 
 class LinkedList:
-    def __init__(self):
+    def __init__(self, values=None):
         self.head = None
+
+        if values:
+            if isinstance(values, list):
+                for v in values[::-1]:
+                    self.insert(0, v)
+            else:
+                self.append(values)
 
 
     def append(self, value):
