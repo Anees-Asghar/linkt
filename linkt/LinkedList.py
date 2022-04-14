@@ -37,8 +37,36 @@ class LinkedList:
             self.head, new_node.next = new_node, self.head
 
 
-    def pop(self, index):
-        pass
+    def pop(self, index=None):
+        if not self.head:
+            raise IndexError("pop from empty LinkedList")
+
+        from math import inf
+        if not index:
+            if self.head.next:
+                index = inf
+            else:
+                index = 0
+        
+        if index == 0:
+            self.head = self.head.next
+            return
+
+        i = 0
+        prev = None
+        curr = self.head
+        while True:
+            if i == index: break
+
+            if not curr.next:
+                if index == inf: break
+                raise IndexError("LinkedList index out of range")
+            
+            prev = curr
+            curr = curr.next
+            i += 1
+        
+        prev.next = curr.next
 
 
     def remove(self, value):
