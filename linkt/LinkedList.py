@@ -144,16 +144,20 @@ class LinkedList:
 
 
     def __str__(self):
+        if not self.head:
+            return "Empty"
+        
         res = [n for n in self]
-        res.append(None)
         res = str(res)
         res = res[1:-1].replace(', ', ' -> ')
         return res
 
 
     def __repr__(self):
+        if not self.head:
+            return "Empty"
+        
         res = [n for n in self]
-        res.append(None)
         res = str(res)
         res = res[1:-1].replace(', ', ' -> ')
         return res
